@@ -8,6 +8,10 @@ WrapStyle: 0
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Log,Consolas,40,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: Card,Microsoft YaHei,50,&H00FFFFFF,&H00FFFFFF,&H001D1711,&H001D1711,1,0,0,0,100,100,1,0,3,26,0,5,0,0,0,1
+Style: Hero,Microsoft YaHei,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: Sub,Microsoft YaHei,34,&H00C0B4A0,&H00C0B4A0,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,0,0,5,0,0,0,1
+Style: Accent,Microsoft YaHei,44,&H0076E600,&H0076E600,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -36,5 +40,20 @@ Dialogue: 0,0:00:52.00,0:00:58.00,Log,,0,0,0,,{\pos(60,1030)\c&H0076E600&}[15:51
 Dialogue: 0,0:00:53.50,0:00:58.00,Log,,0,0,0,,{\pos(60,1098)\c&H0076E600&}[15:51:35]{\c&H00FFFFFF&} 点击 [开心收下] -> (718,2968)
 Dialogue: 0,0:00:55.00,0:00:58.00,Log,,0,0,0,,{\pos(60,1166)\c&H0076E600&}[15:51:42]{\c&H00FFFFFF&} 点击 [直播间关闭] -> (1328,264)
 Dialogue: 0,0:00:56.50,0:00:58.00,Log,,0,0,0,,{\pos(60,1234)\c&H0076E600&}[15:51:48]{\c&H00FFFFFF&} 关闭后回到播放页弹窗 -> 重新进入广告
-; ---- 光标 ----
-Dialogue: 0,0:00:04.00,0:00:58.00,Log,,0,0,0,,{\pos(60,1850)}▊
+; ---- 光标（仅日志段显示） ----
+Dialogue: 0,0:00:04.00,0:00:34.00,Log,,0,0,0,,{\pos(60,1850)}▊
+Dialogue: 0,0:00:37.00,0:00:58.00,Log,,0,0,0,,{\pos(60,1850)}▊
+; ---- 原理页 (34-37s)：卡片依次弹入 ----
+Dialogue: 0,0:00:34.00,0:00:37.00,Sub,,0,0,0,,{\pos(540,600)\c&H0076E600&\fsp6\fad(200,0)}HOW IT WORKS
+Dialogue: 0,0:00:34.10,0:00:37.00,Hero,,0,0,0,,{\pos(540,700)\fad(250,0)}原理就三招
+Dialogue: 0,0:00:34.50,0:00:37.00,Card,,0,0,0,,{\pos(540,880)\an5\fscx85\fscy85\t(0,250,\fscx100\fscy100)\fad(150,0)}①  截屏      adb screencap
+Dialogue: 0,0:00:34.85,0:00:37.00,Accent,,0,0,0,,{\pos(540,975)\an5\fad(120,0)}↓
+Dialogue: 0,0:00:35.15,0:00:37.00,Card,,0,0,0,,{\pos(540,1070)\an5\fscx85\fscy85\t(0,250,\fscx100\fscy100)\fad(150,0)}②  认字      OCR 识别关键词
+Dialogue: 0,0:00:35.50,0:00:37.00,Accent,,0,0,0,,{\pos(540,1165)\an5\fad(120,0)}↓
+Dialogue: 0,0:00:35.80,0:00:37.00,Card,,0,0,0,,{\pos(540,1260)\an5\fscx85\fscy85\t(0,250,\fscx100\fscy100)\fad(150,0)}③  点击      adb input tap
+Dialogue: 0,0:00:36.30,0:00:37.00,Accent,,0,0,0,,{\pos(540,1460)\an5\fad(300,0)}循环往复 · 无人值守
+; ---- 结尾页 (58-62s)：上浮 + 弹入 ----
+Dialogue: 0,0:00:58.20,0:01:02.40,Hero,,0,0,0,,{\an5\move(540,730,540,700,0,300)\fad(300,0)}代码已开源
+Dialogue: 0,0:00:58.80,0:01:02.40,Card,,0,0,0,,{\pos(540,900)\an5\1c&H0076E600&\fscx90\fscy90\t(0,250,\fscx100\fscy100)\fad(200,0)}GitHub 搜  qishui-music-auto
+Dialogue: 0,0:00:59.40,0:01:02.40,Sub,,0,0,0,,{\pos(540,1080)\fad(300,0)}完整代码 · 使用说明 · 坐标标定指南
+Dialogue: 0,0:00:59.80,0:01:02.40,Sub,,0,0,0,,{\pos(540,1600)\fad(300,0)}点个 Star 不迷路

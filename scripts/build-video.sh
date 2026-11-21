@@ -26,9 +26,8 @@ $FF -y -v error -f lavfi -i color=c=black:s=1080x1920:d=4 \
 $FF -y -v error -ss 93 -t 30 -i "$SRC" -vf "$LAYOUT,fps=25" \
   -c:v libx264 -crf 23 -preset fast -pix_fmt yuv420p -an "$T/02_loop1.mp4"
 
-# 3. 原理卡 3s
-$FF -y -v error -f lavfi -i color=c=0x111111:s=1080x1920:d=3 \
-  -vf "drawtext=fontfile='$F':text='截屏  →  OCR 认字  →  模拟点击':fontsize=58:fontcolor=white:x=(w-text_w)/2:y=h/2-40,drawtext=fontfile='$F':text='循环往复，无人值守':fontsize=40:fontcolor=0x00E676:x=(w-text_w)/2:y=h/2+80" \
+# 3. 原理卡 3s（动态渐变背景，卡片动画在 log.ass）
+$FF -y -v error -f lavfi -i "gradients=s=1080x1920:r=25:c0=0x0B1B2B:c1=0x1E4D40:x0=0:y0=0:x1=1080:y1=1920:speed=0.004" -t 3 \
   -c:v libx264 -crf 23 -preset fast -pix_fmt yuv420p "$T/03_principle.mp4"
 
 # 4. 录屏段2 快放 2x（15s）
@@ -40,9 +39,8 @@ $FF -y -v error -loop 1 -t 6 -i "$A/screenshots/07-live-room.jpg" \
   -vf "$LAYOUT" \
   -c:v libx264 -crf 23 -preset fast -pix_fmt yuv420p "$T/05_liveroom.mp4"
 
-# 6. 结尾卡 4s
-$FF -y -v error -f lavfi -i color=c=black:s=1080x1920:d=4 \
-  -vf "drawtext=fontfile='$F':text='代码已开源':fontsize=80:fontcolor=white:x=(w-text_w)/2:y=h/2-90,drawtext=fontfile='$F':text='GitHub 搜 qishui-music-auto':fontsize=46:fontcolor=0x00E676:x=(w-text_w)/2:y=h/2+60" \
+# 6. 结尾卡 4s（动态渐变背景，文字动画在 log.ass）
+$FF -y -v error -f lavfi -i "gradients=s=1080x1920:r=25:c0=0x0B1B2B:c1=0x1E4D40:x0=0:y0=0:x1=1080:y1=1920:speed=0.004" -t 4 \
   -c:v libx264 -crf 23 -preset fast -pix_fmt yuv420p "$T/06_outro.mp4"
 
 # 7. 拼接（4+30+3+15+6+4 = 62s）
