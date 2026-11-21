@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.log
+err.log
+demo_auto2.mp4
+douyin-demo.mp4
+.DS_Store
+assets/build/
